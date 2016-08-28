@@ -20,7 +20,7 @@ class Downloader:
         self.thread_args = []
         self.N = len(self.urls)
         self.filenames = filenames
-        self.headers = msgs
+        self.msgs = msgs
         self.sizes = sizes
         
     def _init(self):
@@ -50,7 +50,7 @@ class Downloader:
         threads = [ threading.Thread(daemon=True, target=self._get,
                                      args=()) for i in range(self.N) ]
         [ thread.start() for thread in threads ]
-        tmp = MultiCmdAnimation('progress', filenames=self.filenames, msg2=self.headers, sizes=self.sizes)
+        tmp = MultiCmdAnimation('progress', filenames=self.filenames, msg2=self.msgs, sizes=self.sizes)
         tmp.start()
         self.Queue.join()
 
