@@ -20,7 +20,7 @@ class Downloader:
         self.thread_args = []
         self.N = len(self.urls)
         self.filenames = filenames
-        self.msgs = msgs
+        self.headers = msgs
         self.sizes = sizes
         
     def _init(self):
