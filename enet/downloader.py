@@ -10,7 +10,7 @@ import threading
 from queue import Queue
 from urllib.request import urlretrieve
 
-from cmdanime import MultiCmdAnimation
+from easyutil import MultiCmdAnimation
 
 class Downloader:
     def __init__(self, urls, filenames, msgs, sizes):
