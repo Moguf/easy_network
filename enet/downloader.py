@@ -4,11 +4,11 @@ downloader.py
 
 
 '''
-from urllib.request import urlretrieve
+
 import logging
 import threading
 from queue import Queue
-#from easyutil import CmdAnimation
+from urllib.request import urlretrieve
 
 class Downloader:
     def __init__(self, urls):
@@ -53,11 +53,7 @@ class Downloader:
         
     def _get(self):
         msg, filename, url, size = self.Queue.get(True, 0.01)
-        newline = '\n'*(self.Queue.qsize() + 1)
-        anm = CmdAnimation(msg2=newline)
-        anm.start()
         urlretrieve(url, filename)
-        anm.end()
 
     def _getProgressBar(self):
         pass
