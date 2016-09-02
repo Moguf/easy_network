@@ -2,7 +2,7 @@ Easy_Network( Python3 scripts ) Under development.
 ==================================================
 
 easy_network provide python3 network scripts. For example, to get a page form a web server.
-easy_network supports mulit-threadin.g
+easy_network supports mulit-threading.
 
 Requirements
 ------------

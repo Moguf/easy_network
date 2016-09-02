@@ -44,7 +44,7 @@ class Downloader:
     def _setArgs(self):
         for i, url in enumerate(self.urls):
             self.Queue.put((self.msgs[i], self.filenames[i], url, self.sizes[i]))
-        
+                
     def gets(self):
         self._setArgs()
         threads = [ threading.Thread(daemon=True, target=self._get,
@@ -59,6 +59,8 @@ class Downloader:
         
     def _get(self):
         msg, filename, url, size = self.Queue.get(True, 0.01)
+        if not url:
+            return False
         urlretrieve(url, filename)
 
     def _getProgressBar(self):
